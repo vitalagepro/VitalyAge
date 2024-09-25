@@ -169,7 +169,7 @@ main{
     transition: transform 3s ease-in-out;
 } 
 .carousel-element-info-container{
-    height: 70%;
+    height: 65%;
     width: 30%;
     position: absolute;
     left: 50%;
@@ -191,8 +191,8 @@ main{
     width: 50%;
     margin: auto;
     height: 3rem;
-    background-color: var(--bg-color-second-level);
-    color: var(--title-color-dark);
+    background-color: var(--title-color-dark);
+    color: var(--title-light-contrast-color);
     font-size: 25px;
     border-radius: 4px;
     margin-left: 50%;
