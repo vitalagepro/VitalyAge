@@ -7,7 +7,7 @@
 :root{
     --bg-color-dark: #014760;
     --bg-color-light: rgb(214, 231, 214);
-    --bg-color-second-level:rgb(197, 241, 102);
+    --bg-color-second-level:rgba(216, 255, 133, 0.473);
 
     --title-color-dark-lighter: #107e57;
     --title-color-dark:#013026;
@@ -24,6 +24,10 @@
 
 body{
     background-color: var(--bg-color-light);
+    overflow-x: hidden;
+}
+::-webkit-scrollbar{
+    width: 0px;
 }
 
 
@@ -115,11 +119,12 @@ main{
     top: 20rem;
     width: 100%;
     position: relative;
+    background-color: var(--title-light-contrast-color);
 }
 .carousel-main{
     position: absolute;
     height: 50rem;
-    background-color: var(--bg-color-second-level);
+    background-color: rgba(216, 255, 133, 0.8);
     top: 0;
     left: 0;
     width: 100%;
@@ -132,6 +137,7 @@ main{
 .carousel-right-btn{
     display: none;
     transition: transform 3s ease-in-out;
+    opacity: 0.473;
 }
 .carousel-left-btn{
     transform: translate(0%, -150%);
@@ -140,7 +146,7 @@ main{
     width: 5rem;
     height: 20rem;
     border: none;
-    background-color: var(--bg-color-second-level);
+    background-color: rgba(216, 255, 133, 0.6);
     color: var(--bg-color-dark);
     font-size: 40px;
     cursor: pointer;
@@ -152,7 +158,7 @@ main{
     width: 5rem;
     height: 20rem;
     border: none;
-    background-color: var(--bg-color-second-level);
+    background-color: rgba(216, 255, 133, 0.6);
     color: var(--bg-color-dark);
     font-size: 40px;
     cursor: pointer;
@@ -207,7 +213,185 @@ main{
 }
 
 
+/* Main content Stle */
 .main-content{
     position: absolute;
-    top: 55rem;
+    top: 50rem;
+    background-color: var(--title-light-contrast-color);
+    width: 100%;
+}
+.main-content__aging-clocks{
+    background-color: var(--bg-color-light);
+    width: 100%;
+    height: 30rem;
+}
+.aging-clocks__nav{
+    height: 18rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+}
+.aging-clocks__nav h2{
+    height: 80%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin-right: 10%;
+    color: var(--title-color-dark);
+}
+.aging-clocks__nav p{
+    font-size: 20px;
+    width: 100%;
+    color: var(--title-color-dark-lighter);
+}
+.aging-clocks-description{
+    color: var(--title-color-dark-lighter);
+    height: 5rem;
+    text-align: left;
+    max-width: 60%;
+    margin: 4rem auto 0rem auto;
+    font-size: 20px;
+}
+.aging-clocks-description_second{
+    color: var(--title-color-dark-lighter);
+    height: 5rem;
+    text-align: left;
+    max-width: 60%;
+    margin: 0rem auto 4rem auto;
+    font-size: 20px;
+}
+.aging-img-container{
+    width: 100%;
+    background-color: red;
+    position: relative;
+    height: 40rem;
+}
+.aging-img-container img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.main-content__revolutionize{
+    position: absolute;
+    top: 75rem;
+    background-color: var(--title-light-contrast-color);
+    width: 100%;
+    height: 63rem;
+}
+.main-content__revolutionize h2{
+    font-size: 30px;
+    color: var(--title-color-dark);
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+.revolutionize_container-cards{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction:  row;
+    justify-content: space-between;
+    align-items: center;
+}
+.card{
+    background-color: var(--bg-color-second-level);
+    height: 47rem;
+    width: 32%;
+    border-radius: 4px;
+}
+.card img{
+    width: 150px;
+    height: 150px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.card h3{
+    font-size: 25px;
+    color: var(--title-color-dark);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.card p{
+    text-align: center;
+    font-size: 18px;
+    width: 80%;
+    margin-left: 10%;
+    line-height: 2;
+}
+
+
+
+.main-content__works{
+    position: absolute;
+    top: 140rem;
+    height: 50rem;
+    width: 100%;
+}
+.main-content__works h3{
+    font-size: 30px;
+    color: var(--title-color-dark);
+    text-align: center;
+    margin-top: 2rem;
+}
+.main-content__works p{
+    width: 60%;
+    margin: auto;
+    font-size: 20px;
+    margin-top: 2rem;
+}
+.main-content__works img{
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-top: 2rem;
+}
+
+
+.footer{
+    position: absolute;
+    top: 250rem;
+    width: 100%;
+    background-color: var(--bg-color-dark);
+    height: 10rem;
+}
+.footer button{ 
+    border: 1px solid var(--title-color-dark-lighter);
+    width: 15rem;
+    height: 3rem;
+    background-color: var(--title-light-contrast-color);
+    color: var(--bg-color-dark);
+    font-size: 25px;
+    border-radius: 4px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-top: 3rem;
+    cursor: pointer;
+}
+.footer button:hover{
+    font-size: 22px;
+}
+
+
+
+
+footer{
+    background-color:rgb(32, 29, 29);
+    position: absolute;
+    width: 100%;
+    top: 260rem;
+    height: 6rem;
+}
+footer p{
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--title-light-contrast-color);
 }
