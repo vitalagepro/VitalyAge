@@ -1,0 +1,213 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+:root{
+    --bg-color-dark: #014760;
+    --bg-color-light: rgb(214, 231, 214);
+    --bg-color-second-level:rgb(197, 241, 102);
+
+    --title-color-dark-lighter: #107e57;
+    --title-color-dark:#013026;
+    --title-color-light: #a1ce3f;
+    --title-light-contrast-color: whitesmoke;
+
+    /* Clock and graphics color */
+    --dark-color: rgba(49, 18, 100, 0.734);
+    --lighter-two-color: rgb(232, 82, 82);
+    --lighter-one-color: rgb(254, 138, 79);
+    --light-color: rgb(223, 165, 58);
+    --mind-color: rgb(49, 133, 90);
+}
+
+body{
+    background-color: var(--bg-color-light);
+}
+
+
+/* Nav Bar style */
+.nav-bar{
+    height: 20rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, var(--bg-color-dark), var(--title-color-light), var(--mind-color));
+    flex-wrap: wrap;
+}
+.nav-bar-tittle{
+    color: var(--title-light-contrast-color);
+    font-size: 38px;
+}
+.nav-bar__logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 20%;
+}
+.nav-bar__logo-container img{
+    width: 80px;
+    height: 80px;
+}
+.nav-bar__logo-container h1{
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 30px;
+    font-weight:  300;
+    color: var(--title-light-contrast-color);
+}
+.nav-bar__linkage{
+    width: 50%;
+    height: 5rem;  
+}
+.linkage-container{
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+.linkage-container li{
+    list-style: none;
+    margin-right: 1rem;
+}
+.linkage-container li a{
+    color: var(--title-light-contrast-color);
+    font-size: 18px;
+    text-decoration: none;
+}
+.linkage-container li a:hover{
+    cursor: pointer;
+    color: var(--title-color-dark);
+}
+.linkage-container li img{
+    width: 20px;
+    height: 20px;
+    transform: translate(0, 10%);
+}
+.nav-bar__social-link{
+    width: 20%;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.nav-bar__social-link a:hover{
+    transform: scale(1.1);
+}
+.nav-bar__social-link a img{
+    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+}
+
+
+/* Carousel style */
+main{
+    position: absolute;
+    top: 20rem;
+    width: 100%;
+    position: relative;
+}
+.carousel-main{
+    position: absolute;
+    height: 50rem;
+    background-color: var(--bg-color-second-level);
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.carousel-element-container{
+    width: 90%;
+    height: 100%;
+}
+.carousel-left-btn,
+.carousel-right-btn{
+    display: none;
+    transition: transform 3s ease-in-out;
+}
+.carousel-left-btn{
+    transform: translate(0%, -150%);
+    position: absolute;
+    left: 0;
+    width: 5rem;
+    height: 20rem;
+    border: none;
+    background-color: var(--bg-color-second-level);
+    color: var(--bg-color-dark);
+    font-size: 40px;
+    cursor: pointer;
+}
+.carousel-right-btn{
+    transform: translate(0%, -150%);
+    position: absolute;
+    right: 0;
+    width: 5rem;
+    height: 20rem;
+    border: none;
+    background-color: var(--bg-color-second-level);
+    color: var(--bg-color-dark);
+    font-size: 40px;
+    cursor: pointer;
+}
+.carousel-left-btn:hover,
+.carousel-right-btn:hover{
+    font-size: 45px;
+}
+.carousel-main:hover .carousel-left-btn,
+.carousel-left-btn:hover, 
+.carousel-main:hover .carousel-left-btn + .carousel-right-btn,
+.carousel-right-btn:hover {
+    display: block;
+    transition: transform 3s ease-in-out;
+} 
+.carousel-element-info-container{
+    height: 70%;
+    width: 30%;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%,-20%);
+}
+.carousel-element-info-container img{
+    height: 100%;
+    width: 100%;
+}
+.carousel-element-info-container h2{
+    color: var(--title-color-dark);
+    text-align: center;
+    font-size: 40px;
+    font-weight: lighter;
+}
+.carousel-element-button{
+    border: 1px solid var(--title-color-dark-lighter);
+    width: 50%;
+    margin: auto;
+    height: 3rem;
+    background-color: var(--bg-color-second-level);
+    color: var(--title-color-dark);
+    font-size: 25px;
+    border-radius: 4px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-top: 1rem;
+}
+.carousel-pagination{
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+.main-content{
+    position: absolute;
+    top: 55rem;
+}
