@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+:root{
+    --bg-color-dark: #014760;
+    --bg-color-light: rgb(214, 231, 214);
+
+    --title-color-dark-lighter: #107e57;
+    --title-color-dark:#013026;
+    --title-color-light: #a1ce3f;
+
+    --dark-color: rgba(49, 18, 100, 0.734);
+    --lighter-two-color: rgb(232, 82, 82);
+    --lighter-one-color: rgb(254, 138, 79);
+    --light-color: rgb(223, 165, 58);
+    --mind-color: rgb(49, 133, 90);
+}
+::-webkit-scrollbar{
+    width: 0px;
+}
+main{
+    background-color: var(--title-color-dark);
+    height: 2350px;
+    position: relative;
+    width: 100%;
+}
+.tittle{
+    color: var(--title-color-light);
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+.container-Input{
+    width: 100%;
+    height: 950px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.inputContainer-div{
+    background-color: rgb(234, 234, 234);
+    width: 98%;
+    height: 420px;
+    margin: auto;
+    border-radius: 4px;
+}
+.inputContainer-div h3{
+    text-align: center;
+    color: var(--title-color-dark-lighter);
+    font-style: italic;
+    padding: 20px;
+}
+.inputContainer-div-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.inputContainer-div-content p{
+    font-size: 20px;
+    padding: 8px;
+    color: var(--lighter-one-color);
+    margin: auto;
+}
+.inputContainer-div-content input{
+    width: 28rem;
+    margin: 0.5rem;
+    height: 2rem;
+    font-size: 20px;
+    border-radius: 4px;
+    border: none;
+    outline-color: var(--title-color-light);
+    padding: 5px;
+}
+.inputContainer-div:last-of-type{
+    margin-top: 0.5rem;
+    width: 99.5%;
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    height: 400px;
+    padding-bottom: 15px;
+}
+.inputContainer-div:last-of-type h3{
+    grid-column: 1 / 4;
+}
+button{
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translate(-50%);
+    width: 20rem;
+    height: 3rem;
+    font-size: 20px;
+    background-color: var(--title-color-dark-lighter);
+    border: 1px solid var(--title-color-light);
+    border-radius: 4px;
+    color: var(--title-color-light);
+    cursor: pointer;
+}
+
