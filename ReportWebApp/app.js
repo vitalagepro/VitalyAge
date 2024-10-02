@@ -6,49 +6,51 @@ const dataField = {
     "Personal Information": {
         "Name": "",
         "Surname": "",
-        "Date of Birth": "DD/MM/YYYY",
-        "Chronological Age": "years",
+        "Date_of_Birth": "DD/MM/YYYY",
+        "Chronological_Age": "years",
         "CF": ""
     },
     "Globuli Bianchi": {
-        "Baso": "",
+        "BASO": "",
         "EOSI": "",
         "LYMPH": "",
         "MONO": "",
         "NEUT": "",
-        "WBC":  "",
-        "NEUT": "",
-        "LYMPH":"",
-        "MONO":"",
-        "EOSI":"",
-        "Baso": ""
+        "WBC":  ""
     },
-    "Stress Ossidativo": {
-        "D-ROMS": "Radicali Liberi",
-        "PAT Test": "Potential Antioxidant Test",
-        "OSI Index": "Oxidative Stress Index",
-        "OBRI": "Oxidative Balance Risk Index",
-        "aa_epa": "",
-        "aa_dha": ""
+    "Globuli Bianchi%": {
+        "NEUT1": "%",
+        "LYMPH1":"%",
+        "MONO1":"%",
+        "EOSI1":"%",
+        "Baso1": "%"
     },
-    "Stadi della Malattia Renale Cronica": {
-        "GFR Stage I": ">90",
-        "GFR Stage II": "60-89",
-        "GFR Stage III": "30-59",
-        "GFR Stage IV": "15-29",
-        "GFR Stage V": "<15"
+    "Globuli Rossi": {
+        "HTC": "%",
+        "HGB":"g/dL",
+        "MCH":"pg",
+        "MCHC":"g/dL",
+        "MCV": "fL",
+        "RBC":  "10^6/uL",
+        "RDW_SD":"fL",
+        "RDW_CV":"%"
+    },
+    "Funzione Renale": {
+        "Azotemia": "mg/dL",
+        "Creatina": "mg/dL",
+        "Uricemia": "mg/dL"
     },
     "Stato della Coagulazione": {
         "PLT": "10^3/uL",
         "MPV": "fL",
-        "P-LCR": "%",
+        "P_LCR": "%",
         "PCT": "%",
         "PDW": "fL"
     },
     "Assetto Lipidico": {
-        "Colesterolo Totale": "mg/dL",
-        "Colesterolo LDL": "mg/dL",
-        "Colesterolo HDL": "mg/dL",
+        "Colesterolo_Tot": "mg/dL",
+        "Colesterolo_LDL": "mg/dL",
+        "Colesterolo_HDL": "mg/dL",
         "Trigliceridi": "mg/dL"
     },
     "Minerali": {
@@ -64,6 +66,19 @@ const dataField = {
         "Ferritina": "ng/mL",
         "Transferrina": "mg/dL"
     },
+        /*"Stress Ossidativo": {
+        "D-ROMS": "Radicali Liberi",
+        "PAT Test": "Potential Antioxidant Test",
+        "OSI Index": "Oxidative Stress Index"
+    },
+    "Stadi della Malattia Renale Cronica": {
+        "GFR Stage I": ">90",
+        "GFR Stage II": "60-89",
+        "GFR Stage III": "30-59",
+        "GFR Stage IV": "15-29",
+        "GFR Stage V": "<15"
+    },
+   
     "Assetto Diabetologico": {
         "Glicemia": "mg/dL",
         "Insulina": "μU/mL",
@@ -87,7 +102,7 @@ const dataField = {
     "Indici di Flogosi": {
         "VES": "mm/h",
         "PCR": "mg/L"
-    },
+    },*/
     "Esame delle Urine": {
         "Colore": "",
         "Aspetto": "",
@@ -218,13 +233,18 @@ function adjustAgePat(pat) {
 }
 function adjustAgeExams(exams) {
     const normalValues = {
-        'BASO %': [0, 2.5],
-        'EOSI %': [0, 7],
-        'LYMPH %': [15, 45],
-        'MONO %': [0, 10],
-        'NEUT %': [45, 70],
+        'BASO': [0, 2.5],
+        'EOSI': [0, 7],
+        'LYMPH': [15, 45],
+        'MONO': [0, 10],
+        'NEUT': [45, 70],
+        'BASO1': [0, 2.5],
+        'EOSI1': [0, 7],
+        'LYMPH1': [15, 45],
+        'MONO1': [0, 10],
+        'NEUT1': [45, 70],
         'WBC': [4.0, 10.0],
-        'HCT %': [38, 48],
+        'HCT': [38, 48],
         'HGB': [12, 16],
         'MCH': [27, 32],
         'MCHC': [32, 37],
@@ -300,8 +320,8 @@ function adjustAgeExams(exams) {
 }
 
 // Funzione principale per calcolare l'età biologica
-function calculateBiologicalAge(chronologicalAge, obriIndex, dRoms, aaEpa, aaDha, homaTest, osi, pat, exams) {
-    let biologicalAge = chronologicalAge;
+function calculateBiologicalAge(Chronological_Age, obriIndex, dRoms, aaEpa, aaDha, homaTest, osi, pat, exams) {
+    let biologicalAge = Chronological_Age;
 
     biologicalAge += adjustAgeObri(obriIndex);
     biologicalAge += adjustAgeDRoms(dRoms);
@@ -326,7 +346,7 @@ function calculateAndSave() {
             }
         });
 
-        const chronologicalAge = parseFloat(data["Chronological-Age"]) || 0;
+        const Chronological_Age = parseFloat(data["Chronological_Age"]) || 0;
         const obriIndex = parseFloat(data["OBRI"]) || null;
         const dRoms = parseFloat(data["D-ROMS"]) || null;
         const aaEpa = parseFloat(data["aa_epa"]) || null;
@@ -343,7 +363,7 @@ function calculateAndSave() {
         }
 
         const biologicalAge = calculateBiologicalAge(
-            chronologicalAge,
+            Chronological_Age,
             obriIndex,
             dRoms,
             aaEpa,
@@ -355,7 +375,7 @@ function calculateAndSave() {
         );
 
         data.BiologicalAge = biologicalAge;
-        data.OlderThanChronologicalAge = biologicalAge > chronologicalAge ? 1 : 0;
+        data.OlderThanChronologicalAge = biologicalAge > Chronological_Age ? 1 : 0;
 
         generatePDFReport(data);
 
@@ -429,21 +449,37 @@ function generatePDFReport(data) {
                 // Se è la prima pagina, aggiungi il testo
                 if (i === 0) {
                     const textData = [
-                        { text: data.Name, x: 110, y: 58, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.Date_of_Birth, x: 110, y: 65, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.CF, x: 110, y: 71, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.Chronological_Age, x: 50, y: 71, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.Baso, x: 90, y: 97, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.EOSI, x: 90, y: 104, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.LYMPH, x: 90, y: 111, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.MONO, x: 90, y: 118, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.NEUT, x: 90, y: 124, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.WBC, x: 90, y: 130, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.NEUT, x: 90, y: 137, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.LYMPH, x: 90, y: 144, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.MONO, x: 90, y: 151, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.EOSI, x: 90, y: 158, fontSize: 12, color: [0, 0, 0] },
-                        { text: data.Baso, x: 90, y: 164, fontSize: 12, color: [0, 0, 0] }
+                        { text: data.Name || "null", x: 110, y: 58, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.Surname|| "null", x: 120, y: 58, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.Date_of_Birth|| "null", x: 110, y: 65, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.Chronological_Age||"null", x: 50, y: 71, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.CF|| "null", x: 110, y: 71, fontSize: 12, color: [0, 0, 0] },  
+                        
+                        { text: data.BASO|| "null", x: 90, y: 97, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.EOSI|| "null", x: 90, y: 104, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.LYMPH|| "null", x: 90, y: 111, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.MONO|| "null", x: 90, y: 118, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.NEUT|| "null", x: 90, y: 124, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.WBC|| "null", x: 90, y: 130, fontSize: 12, color: [0, 0, 0] },
+
+                        { text: data.NEUT1|| "null", x: 90, y: 137, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.LYMPH1|| "null", x: 90, y: 144, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.MONO1|| "null", x: 90, y: 151, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.EOSI1|| "null", x: 90, y: 158, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.Baso1|| "null", x: 90, y: 164, fontSize: 12, color: [0, 0, 0] },
+
+                        { text: data.HTC|| "null", x: 90, y: 184, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.HGB|| "null", x: 90, y: 191, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.MCH|| "null", x: 90, y: 197, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.MCHC|| "null", x: 90, y: 204, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.MCV|| "null", x: 90, y: 210, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.RBC|| "null", x: 90, y: 217, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.RDW_SD|| "null", x: 90, y: 224, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.RDW_CV|| "null", x: 90, y: 230, fontSize: 12, color: [0, 0, 0] },
+
+                        { text: data.Azotemia|| "null", x: 90, y: 250, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.Creatina|| "null", x: 90, y: 260   , fontSize: 12, color: [0, 0, 0] }
+
                     ];
 
                     // Aggiungi il testo alla prima pagina
@@ -455,7 +491,18 @@ function generatePDFReport(data) {
                 }
                 if (i === 1) {
                     const textData = [
-                        { text: data.Colore, x: 90, y: 57, fontSize: 12, color: [0, 0, 0] }
+                        { text: data.Uricemia|| "null", x: 90, y: 60, fontSize: 12, color: [0, 0, 0] },
+
+                        { text: data.PLT|| "null", x: 90, y: 93, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.MPV|| "null", x: 90, y: 100, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.P_LCR|| "null", x: 90, y: 106, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.PCT|| "null", x: 90, y: 112, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.PCT|| "null", x: 90, y: 119, fontSize: 12, color: [0, 0, 0] },
+                        
+                        { text: data.Colesterolo_Tot|| "null", x: 90, y: 112, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.Colesterolo_LDL|| "null", x: 90, y: 112, fontSize: 12, color: [0, 0, 0] },
+                        { text: data.Colesterolo_HDL|| "null", x: 90, y: 112, fontSize: 12, color: [0, 0, 0] },
+                        
                     ];
 
                     // Aggiungi il testo alla seconda pagina
