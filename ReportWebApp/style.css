@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+:root {
+    --bg-color-dark: #014760;
+    --bg-color-light: rgb(214, 231, 214);
+
+    --title-color-dark-lighter: #107e57;
+    --title-color-dark: #013026;
+    --title-color-light: #a1ce3f;
+
+    --dark-color: rgba(49, 18, 100, 0.734);
+    --lighter-two-color: rgb(232, 82, 82);
+    --lighter-one-color: rgb(254, 138, 79);
+    --light-color: rgb(223, 165, 58);
+    --mind-color: rgb(49, 133, 90);
+    
+    --gradient-light: linear-gradient(45deg, var(--title-color-light), var(--lighter-one-color));
+    --gradient-dark: linear-gradient(45deg, var(--title-color-dark), var(--title-color-dark-lighter));
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+main {
+    background: var(--gradient-light);
+    min-height: 100vh; /* Altezza dinamica */
+    position: relative;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.tittle {
+    color: var(--title-color-light);
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.container-Input {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.inputContainer-div {
+    background-color: rgb(234, 234, 234);
+    width: 30%;
+    min-width: 300px;
+    height: auto;
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.inputContainer-div h3 {
+    text-align: center;
+    color: var(--title-color-dark-lighter);
+    font-style: italic;
+    padding-bottom: 10px;
+}
+
+.inputContainer-div-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputContainer-div-content p {
+    font-size: 20px;
+    padding: 8px;
+    color: var(--lighter-one-color);
+}
+
+.inputContainer-div-content input {
+    width: 80%;
+    margin: 0.5rem;
+    height: 2rem;
+    font-size: 20px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    outline-color: var(--title-color-light);
+    padding: 5px;
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.inputContainer-div-content input:hover,
+.inputContainer-div-content input:focus {
+    border: 1px solid var(--title-color-dark-lighter);
+    box-shadow: 0 0 10px var(--title-color-light);
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    width: 15rem;
+    height: 3rem;
+    font-size: 20px;
+    background: var(--gradient-dark);
+    border: 1px solid var(--title-color-light);
+    border-radius: 4px;
+    color: var(--title-color-light);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--title-color-dark);
+    transform: translateY(-3px);
+}
